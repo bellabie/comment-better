@@ -3,7 +3,7 @@ import { render } from 'react-dom';
 import CbbModal from './CbbModal';
 
 //import CommentBetter from './CommentBetter';
-import jQuery from "./libary/jquery";
+import jQuery from "./library/jquery";
 window.$ = window.jQuery = jQuery;
 var idsComplete = [];
 
@@ -14,13 +14,13 @@ var idsComplete = [];
 
   let imgClipboard = ""; 
   //
-  let modalTemplate = '<div id="cbModal">' +
+  /*let modalTemplate = '<div id="cbModal">' +
 	'<div class="sg agree suggestion1">XHow would you define... ?' + imgClipboard + '</div>' +
 	'<div class="sg questionssuggestion2">Good point...' + imgClipboard + '</div>' +
 	'<div class="sg agree suggestion3">What made you aware of this problem?' + imgClipboard + '</div>' +
 	'<div class="sg agreesuggestion4">Want to talk about this in offline?' + imgClipboard + '</div>' +
   '</div>';
-  let cbModal =  modalTemplate ;
+  let cbModal =  modalTemplate ;*/
 //  THIS WORKS:  ----->
 //$("body").prepend(cbModal); // prepend since facebook keeps rolling?
 
@@ -393,7 +393,7 @@ function injectCBB(domElement) {
   console.log($newbies[0].children[0]); // this is the button
 
   $($newbies[0].children[0]).click(function(e){
-    //$(this.href).show();
+    $(this.href).show();
     e.preventDefault();
     e.stopPropagation();
     //console.log(e);
@@ -402,8 +402,8 @@ function injectCBB(domElement) {
     /** Positioning
      * .position() is relative to parent, .offset() to document. 
      **/ 
-    let btn = this;
-    let modal =  document.getElementById('cbModal');  /* or global var? */
+    /*let btn = this;
+    let modal =  document.getElementById('cbModal');  // or global var?
 
     let scrollTop = $(window).scrollTop(); //
       // If the scrollTop + height of modal + gap > btnOffset.top, 
@@ -416,7 +416,7 @@ function injectCBB(domElement) {
     // Uncaught TypeError: Cannot read property 'style' of null
     modal.style.height = modalHeight + "px";
 
-    $(modal).find("#p1 .cbbContent").show(); // not sure why css doesn't do this
+    //$(modal).find("#p1 .cbbContent").show(); // not sure why css doesn't do this
           // @ToDo-figure-this-out-and-cleanup
     if ( scrollTop + modalHeight + modalGap > btnOffset.top ) {
       // Under 
@@ -425,44 +425,37 @@ function injectCBB(domElement) {
     } else { // modal goes over, the normal expected behavior
       $(modal).offset({ top: btnOffset.top-modalHeight-modalGap, left: btnOffset.left-200}); 
     }
+    ~~~~~~~~~~~~~~~~~~~~*/
 
-    /********************* Temp: prep the Modal *******************/
-    // !!!!! @ToDo How often does this run? This is crap code, halfway
-    // between javascript and React for the moment. Clean up before publish....
-   
-    // @ToDo. Crazy issues with locked down cache on css while developing.
-    // Plus need to get chrome images into doc.
+    //REVISED VERSION:
+    // if the btn is at least the modal height (plus safety) away from scrollTop, put it on top
+    // aka if scrollTop-btn > modal height + safety (~245px), put it on top
 
-    
-    let imageUrl = chrome.extension.getURL("img/modal/cover_weaving-into-icon-40.png");
-    $(modal).find('#cp').css('background-image', 'url(' + imageUrl + ')');
-    imageUrl = chrome.extension.getURL("/img/modal/radciv.png");
-    // tab  
-    $(modal).find('#rcc').css('background-image', 'url(' + imageUrl + ')');
-    // and larger for main cbbContent.   
-    imageUrl = chrome.extension.getURL("/img/modal/radical_civility.jpg");
-    $(modal).find('#rcc .cbbContent').css('background-image', 'url(' + imageUrl + ')');
+    let btn = this;
+    let modal =  document.getElementById('cbModal');
+    let cbButton =  document.getElementById('cbButton');
 
-    imageUrl = chrome.extension.getURL("/img/ic_favorite_border_18pt.png");
-    $(modal).find('.adv').css('background-image', 'url(' + imageUrl + ')');
-/* Hide all the tabs ot clicked on. Hides all the tabs when none clicked on.
- * .sg is too far down. #jQuery_vs_React_hide
- *
- * Comment this shit back out soon: */
-    $(modal).find('#tabs li').on('click', function() {  
-   //   $('.sg').hide();
-      $('.sg').show();
-      console.log(this);
-   //   $(this).find('.sg').show();
-      e.stopPropagation();
-    });
-/* */
+    console.log(cbButton);
+    console.log(btn);
+    console.log("modal is "+modal); // yes, this is the modal.
+
+    let scrollTop = $(window).scrollTop(); // distance from top of page
+    let btnOffset = $(this).offset(); // where the btn is from top of page
+
+    console.log(scrollTop - btnOffset.top);
+
+    if (btnOffset.top - scrollTop > 315) {
+      $(modal).offset({ top:btnOffset.top-290, left:btnOffset.left-140 });
+    } else {
+      $(modal).offset({ top:btnOffset.top+50, left:btnOffset.left-140 });
+    }
 
 
 //$('#cbModal').css({'height' : ''})
+    console.log("test log from B");
     console.log(modal); // yes, this is the modal.
     // When the user clicks on the button, open the modal
-    modal.style.display = "block";
+    modal.style.visibility = "visible";
     /* Where? Position the modal: */
     // element.getBoundingClientRect() are relative to the viewport.
     //var bodyRect = document.body.getBoundingClientRect(),
@@ -504,10 +497,10 @@ function injectCBB(domElement) {
     ///console.log(event.target.parentNode);
     // event.currentTarget
     // @ToDo: if you click on a div within modal, that's not modal
-    if ((event.target != modal && event.target.parentNode != modal ) 
-         && event.target != btn ) {
-        modal.style.display = "none";
-    }
+    /*if ((event.target != modal && event.target.parentNode != modal ) &&
+         (event.target.parentNode != btn && event.target != btn )) {
+        modal.style.visibility = "hidden";
+    }*/
   }
   // Get the <span> element that closes the modal
   //var span = document.getElementsByClassName("close")[0];

@@ -5,6 +5,7 @@
   "scripts": {
     "dev": "node scripts/dev",
     "build": "node scripts/build",
+    "builddev": "node scripts/builddev",
     "compress": "node scripts/compress",
     "compress-keygen": "crx keygen",
     "clean": "rimraf build/ dev/ *.zip *.crx",

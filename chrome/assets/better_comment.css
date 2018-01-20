@@ -1,29 +1,29 @@
 /* better_comment puts the button on the page */
 
-#cbbutton { 
-	z-index: 1000; /* 1000 too high, keep tryign */
-	overflow-y: visible;
-	position: relative;
-	padding-left:  /* if on right */
-	top: -12px; 
-	/*
-	* background-image: "img/attachButton.png";
-	height: 20px;
-	width: 20px;   */
+.cbButton { 
+  z-index: 0;
+  overflow-y: visible;
+  position: relative;
 }
-#cbbutton img {
-	position: relative;
-	top: -4px;
+
+#cbButton {
+  position: relative;
+  top: 0px;
+  right: -2px;
+  width: 25px;
 }
 
 #cbModal {
-	position: absolute;
-	display: none;
-	z-index: 99;
-	border-radius: 3px;
-	width: 280px;
-	background: white;
-	-webkit-box-shadow: 0px 0px 5px 1px rgba(150,150,150,1);
-	-moz-box-shadow: 0px 0px 5px 1px rgba(150,150,150,1);
-	box-shadow: 0px 0px 5px 1px rgba(150,150,150,1);
+  position: absolute;
+  bottom: 44px;
+  right: 5px;
+  display: block;
+  visibility: hidden;
+  z-index: 99;
+  border-radius: 3px;
+  width: 280px;
+  background: white;
+  -webkit-box-shadow: 0px 0px 5px 1px rgba(150,150,150,1);
+  -moz-box-shadow: 0px 0px 5px 1px rgba(150,150,150,1);
+  box-shadow: 0px 0px 5px 1px rgba(150,150,150,1);
 }

@@ -22,12 +22,12 @@ module.exports = {
     new webpack.optimize.OccurenceOrderPlugin(),
     new webpack.IgnorePlugin(/[^/]+\/[\S]+.dev$/),
     new webpack.optimize.DedupePlugin(),
-    new webpack.optimize.UglifyJsPlugin({
+    /*new webpack.optimize.UglifyJsPlugin({
       comments: false,
       compressor: {
         warnings: false
       }
-    }),
+    }),*/
     new webpack.DefinePlugin({
       'process.env': {
         NODE_ENV: JSON.stringify('production')

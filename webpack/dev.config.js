@@ -2,30 +2,16 @@ const path = require('path');
 const webpack = require('webpack');
 const postCSSConfig = require('./postcss.config');
 
-const host = 'localhost';
-const port = 3000;
 const customPath = path.join(__dirname, './customPublicPath');
-const hotScript = 'webpack-hot-middleware/client?path=__webpack_hmr&dynamicPublicPath=true';
 
-const baseDevConfig = () => ({
-  devtool: 'eval-cheap-module-source-map',
+module.exports = {
   entry: {
-    todoapp: [customPath, hotScript, path.join(__dirname, '../chrome/extension/todoapp')],
-    background: [customPath, hotScript, path.join(__dirname, '../chrome/extension/background')],
-  },
-  devMiddleware: {
-    publicPath: `http://${host}:${port}/js`,
-    stats: {
-      colors: true
-    },
-    noInfo: true,
-    headers: { 'Access-Control-Allow-Origin': '*' }
-  },
-  hotMiddleware: {
-    path: '/js/__webpack_hmr'
+    todoapp: [customPath, path.join(__dirname, '../chrome/extension/todoapp')],
+    background: [customPath, path.join(__dirname, '../chrome/extension/background')],
+    inject: [customPath, path.join(__dirname, '../chrome/extension/inject')]
   },
   output: {
-    path: path.join(__dirname, '../dev/js'),
+    path: path.join(__dirname, '../build/js'),
     filename: '[name].bundle.js',
     chunkFilename: '[id].chunk.js'
   },
@@ -33,14 +19,18 @@ const baseDevConfig = () => ({
     return postCSSConfig;
   },
   plugins: [
-    new webpack.HotModuleReplacementPlugin(),
-    new webpack.NoErrorsPlugin(),
-    new webpack.IgnorePlugin(/[^/]+\/[\S]+.prod$/),
+    new webpack.optimize.OccurenceOrderPlugin(),
+    new webpack.IgnorePlugin(/[^/]+\/[\S]+.dev$/),
+    new webpack.optimize.DedupePlugin(),
+    /*new webpack.optimize.UglifyJsPlugin({
+      comments: false,
+      compressor: {
+        warnings: false
+      }
+    }),*/
     new webpack.DefinePlugin({
-      __HOST__: `'${host}'`,
-      __PORT__: port,
       'process.env': {
-        NODE_ENV: JSON.stringify('development')
+        NODE_ENV: JSON.stringify('dev')
       }
     })
   ],
@@ -53,34 +43,15 @@ const baseDevConfig = () => ({
       loader: 'babel',
       exclude: /node_modules/,
       query: {
-        presets: ['react-hmre']
+        presets: ['react-optimize']
       }
     }, {
       test: /\.css$/,
       loaders: [
         'style',
-        'css?modules&sourceMap&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]',
+        'css?modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]',
         'postcss'
       ]
     }]
   }
-});
-
-const injectPageConfig = baseDevConfig();
-injectPageConfig.entry = [
-  customPath,
-  path.join(__dirname, '../chrome/extension/inject')
-];
-delete injectPageConfig.hotMiddleware;
-delete injectPageConfig.module.loaders[0].query;
-injectPageConfig.plugins.shift(); // remove HotModuleReplacementPlugin
-injectPageConfig.output = {
-  path: path.join(__dirname, '../dev/js'),
-  filename: 'inject.bundle.js',
 };
-const appConfig = baseDevConfig();
-
-module.exports = [
-  injectPageConfig,
-  appConfig
-];
