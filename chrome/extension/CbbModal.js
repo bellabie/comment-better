@@ -30,13 +30,14 @@ export default class CbbModal extends Component {
 					<div id="menuClear"></div>
 				</div>
 				<div id="suggestionBox">
-					<div className="suggestion1">suggestion1</div>
+					<div className="suggestion1">suggestion1 suggestion1 suggestion1</div>
 					<div className="suggestion2">suggestion2</div>
-					<div className="suggestion3">suggestion3</div>
-					<div className="suggestion4">suggestion4</div>
-					<div className="suggestion5">suggestion5</div>
-					<div className="suggestion6">suggestion6</div>
+					<div className="suggestion3">suggestion3suggestion3</div>
+					<div className="suggestion4">suggestion4suggestion4suggestion4</div>
+					<div className="suggestion5">suggestion5suggestion5 suggestion5</div>
+					<div className="suggestion6">suggestion6 suggestion6suggestion6</div>
 				</div>
+				<div id="cbBigger">testest<br>testest</div>
 			</div>
 		);
 	}

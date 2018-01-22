@@ -405,16 +405,12 @@ let htmlTemplate = '<a class="cbbutton">' + image + '</a>';
 	// @ToDo: Dig to make sure can simply be ignored:
 	console.log($newbies[0].children[0]); // this is the button
 
+
+// Shows the modal when the UFI button is clicked
 	$($newbies[0].children[0]).click(function(e){
 		$(this.href).show();
 		e.preventDefault();
 		e.stopPropagation();
-
-
-
-
-
-
 
 		//REVISED POSITIONING SYSTEM:
 		// if the btn is at least the modal height (plus safety) away from scrollTop, put it on top
@@ -422,8 +418,6 @@ let htmlTemplate = '<a class="cbbutton">' + image + '</a>';
 
 		let btn = this;
 		let modal = document.getElementById('cbModal');
-		
-		let cbButton =	document.getElementById('cbButton');
 
 		console.log(cbButton);
 		console.log(btn);
@@ -438,8 +432,10 @@ let htmlTemplate = '<a class="cbbutton">' + image + '</a>';
 		} else {
 			$(modal).offset({ top:btnOffset.top-284, left:btnOffset.left-130 });
 		}
-		
+
 		modal.style.visibility = "visible";
+		//btn.style.visibility = "hidden";
+		//experimenting with hiding the small button in favor of a bigger button that connects the modal into the space
 
 	});
 

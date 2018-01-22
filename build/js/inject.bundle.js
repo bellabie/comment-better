@@ -11879,17 +11879,19 @@
 		id: "suggestionBox"
 	}, void 0, (0, _jsx3.default)("div", {
 		className: "suggestion1"
-	}, void 0, "suggestion1"), (0, _jsx3.default)("div", {
+	}, void 0, "suggestion1 suggestion1 suggestion1"), (0, _jsx3.default)("div", {
 		className: "suggestion2"
 	}, void 0, "suggestion2"), (0, _jsx3.default)("div", {
 		className: "suggestion3"
-	}, void 0, "suggestion3"), (0, _jsx3.default)("div", {
+	}, void 0, "suggestion3suggestion3"), (0, _jsx3.default)("div", {
 		className: "suggestion4"
-	}, void 0, "suggestion4"), (0, _jsx3.default)("div", {
+	}, void 0, "suggestion4suggestion4suggestion4"), (0, _jsx3.default)("div", {
 		className: "suggestion5"
-	}, void 0, "suggestion5"), (0, _jsx3.default)("div", {
+	}, void 0, "suggestion5suggestion5 suggestion5"), (0, _jsx3.default)("div", {
 		className: "suggestion6"
-	}, void 0, "suggestion6")));
+	}, void 0, "suggestion6 suggestion6suggestion6")), (0, _jsx3.default)("div", {
+		id: "cbBigger"
+	}, void 0, "test"));
 
 	var CbbModal = function (_Component) {
 		(0, _inherits3.default)(CbbModal, _Component);
@@ -12384,6 +12386,8 @@
 		// @ToDo: Dig to make sure can simply be ignored:
 		console.log($newbies[0].children[0]); // this is the button
 
+
+		// Shows the modal when the UFI button is clicked
 		$($newbies[0].children[0]).click(function (e) {
 			$(this.href).show();
 			e.preventDefault();
@@ -12395,8 +12399,6 @@
 
 			var btn = this;
 			var modal = document.getElementById('cbModal');
-
-			var cbButton = document.getElementById('cbButton');
 
 			console.log(cbButton);
 			console.log(btn);
@@ -12413,6 +12415,8 @@
 			}
 
 			modal.style.visibility = "visible";
+			//btn.style.visibility = "hidden";
+			//experimenting with hiding the small button in favor of a bigger button that connects the modal into the space
 		});
 
 		// This can probably be removed once we only have cbModal per page

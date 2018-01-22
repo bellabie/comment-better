@@ -25,12 +25,12 @@
 }
 
 #suggestionBox {
-  max-height: 231px;
+  max-height: 232px;
   overflow: scroll;
 }
 
 .suggestion1, .suggestion2, .suggestion3, .suggestion4, .suggestion5, .suggestion6 {
-  width: 86%;
+  width: 84%;
   padding: 10px;
   margin: 12px auto;
   border-radius: 10px;
@@ -43,7 +43,9 @@
 
 #cbBigger {
   margin: 10px auto -35px;
-  background-color: none;
+  background-color: blue;
+  color: black;
   width: 60px;
   height: 40px;
+  visibility: hidden;
 }
