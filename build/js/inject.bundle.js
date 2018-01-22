@@ -23671,7 +23671,6 @@
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	window.$ = window.jQuery = _jquery2.default;
-
 	//import CommentBetter from './CommentBetter';
 
 	var idsComplete = [];
@@ -24008,27 +24007,30 @@
 
 		// SHIT. Shut the observer from what we do below.
 
+
+		// images in chrome extensions are trick, this generates an odd URL for it
+		var imgURL = chrome.extension.getURL("img/commentbetter-logo-filled-right.png");
+		var image = "<img id='cbButton' src='" + imgURL + "' />";
+		var htmlTemplate = '<a class="cbbutton">' + image + '</a>';
+		// _r1a _5f0v		 might be added back to class 
+		//'<a onclick="openModal(e)" class="cbbutton" aria-label="Openings: Comment Better" data-hover="tooltip" data-tooltip-alignh="center" data-tooltip-content="Comment Better" role="button" href="#">' + image + '</a>' + cbModal;
+		// Overwrite cleaner, but might go back to above...
+		//'<a id="cbb' +	+ '" onclick="openModal(e)" class="cbbutton">' + image + '</a>';			
+
+		// Note: htmlTemplate might be applied more than once at a time. No id's!
+
+
 		/*
 	 	 let imgClipboard = ""; 
-	 	// images in chrome extensions are trick, this generates an odd URL for it
-	 	var imgURL = chrome.extension.getURL("img/commentbetter-logo-filled-right.png");
+	 	
 	 	var imgClipboard = chrome.extension.getURL("img/Clipboard-Icon-20.png");
 	 	imgClipboard = '&nbsp;<img src="' + imgClipboard + '"/>';
 	 
 	 
 	 	// via facebook cut and paste
-	 	let image = "<img class='cbb-image' src='" + imgURL +"' />";
+	 	
 	 	$(".clipboard").css("background-image", imgClipboard);
 	 	imgClipboard = ''; // talk to designer!!
-	  
-	 		let htmlTemplate = // _r1a _5f0v		 might be added back to class 
-	 			//'<a onclick="openModal(e)" class="cbbutton" aria-label="Openings: Comment Better" data-hover="tooltip" data-tooltip-alignh="center" data-tooltip-content="Comment Better" role="button" href="#">' + image + '</a>' + cbModal;
-	 			// Overwrite cleaner, but might go back to above...
-	 			//'<a id="cbb' +	+ '" onclick="openModal(e)" class="cbbutton">' + image + '</a>';
-	 			'<a class="cbbutton">' + image + '</a>';
-	 
-	 
-	 // Note: htmlTemplate might be applied more than once at a time. No id's!
 	  */
 
 		/** @ToDos, perhaps
@@ -24112,6 +24114,7 @@
 		if (window == null) {
 			console.log("Hey, why is window null?????? ID: " + id);
 		}
+
 		window.onclick = function (event) {
 			// click outside the modal, anywhere anytime, and it's done.
 			console.log("event target for click: ");

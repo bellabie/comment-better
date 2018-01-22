@@ -1,7 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 import { render } from 'react-dom';
 import CbbModal from './CbbModal';
-
 //import CommentBetter from './CommentBetter';
 import jQuery from "./library/jquery";
 window.$ = window.jQuery = jQuery;
@@ -20,9 +19,20 @@ window.addEventListener('load', () => {
 });
 
 
+
+
+
+
+
 console.log("CommentBetterButton Initiate!!!");
 
 function cbModal(id) { console.log("open " + id); }
+
+
+
+
+
+
 
 // TEMP!!
 function sleep(ms) {
@@ -57,6 +67,12 @@ if ( document.readyState == "complete" ||
 	console.log("window addEventListener for load ***");
 	window.addEventListener('load', injectCBB());
 }
+
+
+
+
+
+
 
 
 //	Create a MutationObserver. Run it after running the above?
@@ -198,6 +214,10 @@ var observer = new MutationObserver(function(mutations) {
 });
 
 
+
+
+
+
 /*** Notes on MutationObserver
  *	It's much cleaner if I can find the parent into which the new
  *	nodes are added ... facebook makes this hard. It's ok to not observe
@@ -325,27 +345,33 @@ function injectCBB(domElement) {
 
 // SHIT. Shut the observer from what we do below.
 
+
+// images in chrome extensions are trick, this generates an odd URL for it
+var imgURL = chrome.extension.getURL("img/commentbetter-logo-filled-right.png");
+let image = "<img id='cbButton' src='" + imgURL +"' />";
+let htmlTemplate = '<a class="cbbutton">' + image + '</a>';
+// _r1a _5f0v		 might be added back to class 
+			//'<a onclick="openModal(e)" class="cbbutton" aria-label="Openings: Comment Better" data-hover="tooltip" data-tooltip-alignh="center" data-tooltip-content="Comment Better" role="button" href="#">' + image + '</a>' + cbModal;
+			// Overwrite cleaner, but might go back to above...
+			//'<a id="cbb' +	+ '" onclick="openModal(e)" class="cbbutton">' + image + '</a>';			
+
+// Note: htmlTemplate might be applied more than once at a time. No id's!
+
+
+
+
+
 /*
 	 let imgClipboard = ""; 
-	// images in chrome extensions are trick, this generates an odd URL for it
-	var imgURL = chrome.extension.getURL("img/commentbetter-logo-filled-right.png");
+	
 	var imgClipboard = chrome.extension.getURL("img/Clipboard-Icon-20.png");
 	imgClipboard = '&nbsp;<img src="' + imgClipboard + '"/>';
 
 
 	// via facebook cut and paste
-	let image = "<img class='cbb-image' src='" + imgURL +"' />";
+	
 	$(".clipboard").css("background-image", imgClipboard);
 	imgClipboard = ''; // talk to designer!!
- 
-		let htmlTemplate = // _r1a _5f0v		 might be added back to class 
-			//'<a onclick="openModal(e)" class="cbbutton" aria-label="Openings: Comment Better" data-hover="tooltip" data-tooltip-alignh="center" data-tooltip-content="Comment Better" role="button" href="#">' + image + '</a>' + cbModal;
-			// Overwrite cleaner, but might go back to above...
-			//'<a id="cbb' +	+ '" onclick="openModal(e)" class="cbbutton">' + image + '</a>';
-			'<a class="cbbutton">' + image + '</a>';
-
-
-// Note: htmlTemplate might be applied more than once at a time. No id's!
  */
 
 	/** @ToDos, perhaps
@@ -355,6 +381,10 @@ function injectCBB(domElement) {
 	 *	 a parent.
 	 * - How does the modal close? Is it comfy for most users as is?
 	 **/		
+
+
+
+
 
 
 	
@@ -379,6 +409,12 @@ function injectCBB(domElement) {
 		$(this.href).show();
 		e.preventDefault();
 		e.stopPropagation();
+
+
+
+
+
+
 
 		//REVISED POSITIONING SYSTEM:
 		// if the btn is at least the modal height (plus safety) away from scrollTop, put it on top
@@ -411,6 +447,11 @@ function injectCBB(domElement) {
 
 	});
 
+
+
+
+
+
 	// This can probably be removed once we only have cbModal per page
 	// use parent:		_3ccb, or _5jmm
 	$('.UFICommentAttachmentButtons').parents('._42ef').css("overflow", "visible");
@@ -430,6 +471,13 @@ function injectCBB(domElement) {
 	// window is apparently null?
 	console.log(window);
 	if ( window == null ) { console.log("Hey, why is window null?????? ID: " + id); }
+
+
+
+
+
+
+
 	window.onclick = function(event) {
 		// click outside the modal, anywhere anytime, and it's done.
 		console.log("event target for click: ");
