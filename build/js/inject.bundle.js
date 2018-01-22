@@ -23545,24 +23545,30 @@
 	var _ref = (0, _jsx3.default)("div", {
 		id: "cbModal"
 	}, void 0, (0, _jsx3.default)("div", {
-		"class": "menu"
+		id: "menu"
 	}, void 0, (0, _jsx3.default)("div", {
-		"class": "menuTab"
+		className: "menuTab"
 	}, void 0, "Affirm"), (0, _jsx3.default)("div", {
-		"class": "menuTab"
+		className: "menuTab"
 	}, void 0, "Clarify"), (0, _jsx3.default)("div", {
-		"class": "menuTab"
+		className: "menuTab"
 	}, void 0, "Request"), (0, _jsx3.default)("div", {
 		id: "menuClear"
-	})), "/*", (0, _jsx3.default)("div", {
-		"class": "suggestion1"
+	})), (0, _jsx3.default)("div", {
+		id: "suggestionBox"
+	}, void 0, (0, _jsx3.default)("div", {
+		className: "suggestion1"
 	}, void 0, "' + suggestion1 + '"), (0, _jsx3.default)("div", {
-		"class": "suggestion2"
+		className: "suggestion2"
 	}, void 0, "' + suggestion2 + '"), (0, _jsx3.default)("div", {
-		"class": "suggestion3"
+		className: "suggestion3"
 	}, void 0, "' + suggestion3 + '"), (0, _jsx3.default)("div", {
-		"class": "suggestion4"
-	}, void 0, "' + suggestion4 + '"), "'*/");
+		className: "suggestion4"
+	}, void 0, "' + suggestion4 + '"), (0, _jsx3.default)("div", {
+		className: "suggestion5"
+	}, void 0, "' + suggestion5 + '"), (0, _jsx3.default)("div", {
+		className: "suggestion6"
+	}, void 0, "' + suggestion6 + '")));
 
 	var CbbModal = function (_Component) {
 		(0, _inherits3.default)(CbbModal, _Component);
@@ -24085,10 +24091,6 @@
 			} else {
 				$(modal).offset({ top: btnOffset.top - 284, left: btnOffset.left - 130 });
 			}
-
-			console.log(modal); // yes, this is the modal.
-			// When the user clicks on the button, open the modal
-
 
 			modal.style.visibility = "visible";
 		});

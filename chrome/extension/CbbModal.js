@@ -17,22 +17,26 @@ export default class CbbModal extends Component {
 
 		return (
 		 	<div id="cbModal">
-				<div class="menu">
-					<div class="menuTab" /*onClick={menuSelect("menuAffirm")}*/>
+				<div id="menu">
+					<div className="menuTab" /*onClick={menuSelect("menuAffirm")}*/>
 						Affirm
 					</div>
-					<div class="menuTab" /*onClick={menuSelect("menuClarify")}*/>
+					<div className="menuTab" /*onClick={menuSelect("menuClarify")}*/>
 						Clarify
 					</div>
-					<div class="menuTab" /*onClick={menuSelect("menuRequest")}*/>
+					<div className="menuTab" /*onClick={menuSelect("menuRequest")}*/>
 						Request
 					</div>
 					<div id="menuClear"></div>
 				</div>
-				/*<div class="suggestion1">' + suggestion1 + '</div>
-				<div class="suggestion2">' + suggestion2 + '</div>
-				<div class="suggestion3">' + suggestion3 + '</div>
-				<div class="suggestion4">' + suggestion4 + '</div>'*/
+				<div id="suggestionBox">
+					<div className="suggestion1">' + suggestion1 + '</div>
+					<div className="suggestion2">' + suggestion2 + '</div>
+					<div className="suggestion3">' + suggestion3 + '</div>
+					<div className="suggestion4">' + suggestion4 + '</div>
+					<div className="suggestion5">' + suggestion5 + '</div>
+					<div className="suggestion6">' + suggestion6 + '</div>
+				</div>
 			</div>
 		);
 	}

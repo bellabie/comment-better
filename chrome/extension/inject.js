@@ -438,11 +438,7 @@ let htmlTemplate = '<a class="cbbutton">' + image + '</a>';
 		} else {
 			$(modal).offset({ top:btnOffset.top-284, left:btnOffset.left-130 });
 		}
-
-		console.log(modal); // yes, this is the modal.
-		// When the user clicks on the button, open the modal
-
-
+		
 		modal.style.visibility = "visible";
 
 	});

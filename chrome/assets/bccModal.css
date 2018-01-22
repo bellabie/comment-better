@@ -1,18 +1,4 @@
-#cbModal {
-  position: absolute;
-  bottom: 44px;
-  right: 5px;
-  z-index: 99;
-  border-radius: 3px;
-  width: 280px;
-  height: 270px;
-  background: white;
-  -webkit-box-shadow: 0px 0px 5px 1px rgba(150,150,150,1);
-  -moz-box-shadow: 0px 0px 5px 1px rgba(150,150,150,1);
-  box-shadow: 0px 0px 5px 1px rgba(150,150,150,1);
-}
-
-.menu {
+#menu {
   background-color: #F6F7F9;
   width: 100%;
   display: block;
@@ -36,7 +22,13 @@
   clear: both;
 }
 
-.suggestion1, .suggestion2, .suggestion3, .suggestion4 {
+#suggestionBox {
+  max-height: 250px;
+  background-color: blue;
+  overflow: scroll;
+}
+
+.suggestion1, .suggestion2, .suggestion3, .suggestion4, .suggestion5, .suggestion6 {
   width: 86%;
   padding: 10px;
   margin: 15px auto;
@@ -46,7 +38,7 @@
   cursor: pointer;
 }
 
-.suggestion1 {background-color:#F15e25;} .suggestion2 {background-color:#Ee9a21;} .suggestion3 {background-color:#A0499c;} .suggestion4 {background-color:#5c4f9b;}
+.suggestion1 {background-color:#F15e25;} .suggestion2 {background-color:#Ee9a21;} .suggestion3 {background-color:#A0499c;} .suggestion4 {background-color:#5c4f9b;} .suggestion5 {background-color:#A0499c;} .suggestion6 {background-color:#5c4f9b;}
 
 #cbBigger {
   margin: 10px auto -35px;
