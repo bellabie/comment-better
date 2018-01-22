@@ -1,8 +1,8 @@
 {
-  "version": "0.0.1",
+  "version": "0.0.13",
   "name": "Comment Better",
-  "manifest_version": 2,
-  "description": "Edit your comment boxes with suggestions from communications experts. Based on react-chrome-extension-boilerplate. Uses same tools as Social Media Web Guide, intended to be packed together maybe.",
+  "manifest_version": 3,
+  "description": "Leave better Facebook comments with conversation techniques from experts",
   "web_accessible_resources": [
     "inject.html", "img/attachButton.png","*"
   ],
@@ -14,7 +14,7 @@
       "matches": [
         "<all_urls>"
       ],
-      "css": ["better_comment.css"]
+      "css": ["better_comment.css", "bccModal.css"]
     }
   ]
 
