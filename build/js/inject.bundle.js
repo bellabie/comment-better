@@ -23558,17 +23558,17 @@
 		id: "suggestionBox"
 	}, void 0, (0, _jsx3.default)("div", {
 		className: "suggestion1"
-	}, void 0, "' + suggestion1 + '"), (0, _jsx3.default)("div", {
+	}, void 0, "suggestion1"), (0, _jsx3.default)("div", {
 		className: "suggestion2"
-	}, void 0, "' + suggestion2 + '"), (0, _jsx3.default)("div", {
+	}, void 0, "suggestion2"), (0, _jsx3.default)("div", {
 		className: "suggestion3"
-	}, void 0, "' + suggestion3 + '"), (0, _jsx3.default)("div", {
+	}, void 0, "suggestion3"), (0, _jsx3.default)("div", {
 		className: "suggestion4"
-	}, void 0, "' + suggestion4 + '"), (0, _jsx3.default)("div", {
+	}, void 0, "suggestion4"), (0, _jsx3.default)("div", {
 		className: "suggestion5"
-	}, void 0, "' + suggestion5 + '"), (0, _jsx3.default)("div", {
+	}, void 0, "suggestion5"), (0, _jsx3.default)("div", {
 		className: "suggestion6"
-	}, void 0, "' + suggestion6 + '")));
+	}, void 0, "suggestion6")));
 
 	var CbbModal = function (_Component) {
 		(0, _inherits3.default)(CbbModal, _Component);

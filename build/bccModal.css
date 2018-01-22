@@ -4,6 +4,8 @@
   display: block;
   cursor: pointer;
   border: 5px #555;
+  border-radius: 3px 3px 0 0;
+  overflow: hidden;
 }
 
 .menuTab {
@@ -23,22 +25,21 @@
 }
 
 #suggestionBox {
-  max-height: 250px;
-  background-color: blue;
+  max-height: 231px;
   overflow: scroll;
 }
 
 .suggestion1, .suggestion2, .suggestion3, .suggestion4, .suggestion5, .suggestion6 {
   width: 86%;
   padding: 10px;
-  margin: 15px auto;
+  margin: 12px auto;
   border-radius: 10px;
   color: white;
   text-align: center;
   cursor: pointer;
 }
 
-.suggestion1 {background-color:#F15e25;} .suggestion2 {background-color:#Ee9a21;} .suggestion3 {background-color:#A0499c;} .suggestion4 {background-color:#5c4f9b;} .suggestion5 {background-color:#A0499c;} .suggestion6 {background-color:#5c4f9b;}
+.suggestion1 {background-color:#F15e25;} .suggestion2 {background-color:#Ee9a21;} .suggestion3 {background-color:#A0499c;} .suggestion4 {background-color:#5c4f9b;} .suggestion5 {background-color:#F15e25;} .suggestion6 {background-color:#Ee9a21;}
 
 #cbBigger {
   margin: 10px auto -35px;
