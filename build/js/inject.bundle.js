@@ -11827,9 +11827,8 @@
 	"use strict";
 
 	Object.defineProperty(exports, "__esModule", {
-		value: true
+	  value: true
 	});
-	exports.default = undefined;
 
 	var _jsx2 = __webpack_require__(133);
 
@@ -11864,58 +11863,82 @@
 	//import style from '../assets/bccModalx.css';
 
 	var _ref = (0, _jsx3.default)("div", {
-		id: "cbModal"
+	  id: "menuClear"
+	});
+
+	var _ref2 = (0, _jsx3.default)("div", {
+	  id: "suggestionBox"
 	}, void 0, (0, _jsx3.default)("div", {
-		id: "menu"
-	}, void 0, (0, _jsx3.default)("div", {
-		className: "menuTab"
-	}, void 0, "Affirm"), (0, _jsx3.default)("div", {
-		className: "menuTab"
-	}, void 0, "Clarify"), (0, _jsx3.default)("div", {
-		className: "menuTab"
-	}, void 0, "Request"), (0, _jsx3.default)("div", {
-		id: "menuClear"
-	})), (0, _jsx3.default)("div", {
-		id: "suggestionBox"
-	}, void 0, (0, _jsx3.default)("div", {
-		className: "suggestion1"
+	  className: "suggestion1"
 	}, void 0, "suggestion1 suggestion1 suggestion1"), (0, _jsx3.default)("div", {
-		className: "suggestion2"
+	  className: "suggestion2"
 	}, void 0, "suggestion2"), (0, _jsx3.default)("div", {
-		className: "suggestion3"
+	  className: "suggestion3"
 	}, void 0, "suggestion3suggestion3"), (0, _jsx3.default)("div", {
-		className: "suggestion4"
+	  className: "suggestion4"
 	}, void 0, "suggestion4suggestion4suggestion4"), (0, _jsx3.default)("div", {
-		className: "suggestion5"
+	  className: "suggestion5"
 	}, void 0, "suggestion5suggestion5 suggestion5"), (0, _jsx3.default)("div", {
-		className: "suggestion6"
-	}, void 0, "suggestion6 suggestion6suggestion6")), (0, _jsx3.default)("div", {
-		id: "cbBigger"
-	}, void 0, "test"));
+	  className: "suggestion6"
+	}, void 0, "suggestion6 suggestion6suggestion6"));
+
+	var _ref3 = (0, _jsx3.default)("div", {
+	  id: "cbBigger"
+	}, void 0, "testest", (0, _jsx3.default)("br", {}), "testest");
 
 	var CbbModal = function (_Component) {
-		(0, _inherits3.default)(CbbModal, _Component);
+	  (0, _inherits3.default)(CbbModal, _Component);
 
-		function CbbModal(props) {
-			(0, _classCallCheck3.default)(this, CbbModal);
-			return (0, _possibleConstructorReturn3.default)(this, (CbbModal.__proto__ || (0, _getPrototypeOf2.default)(CbbModal)).call(this, props));
-			//this.state = {activeButton: "menuAffirm"};
-			//this.state = this.menuSelect.bind(this);
-		}
+	  function CbbModal(props) {
+	    (0, _classCallCheck3.default)(this, CbbModal);
 
-		/*function menuSelect(menuButton) {
-	 	this.setState({activeButton: menuButton});
-	 }*/
+	    var _this = (0, _possibleConstructorReturn3.default)(this, (CbbModal.__proto__ || (0, _getPrototypeOf2.default)(CbbModal)).call(this, props));
 
-		(0, _createClass3.default)(CbbModal, [{
-			key: "render",
-			value: function render() {
+	    _this.state = { activeButton: "menuAffirm" };
+	    _this.menuSelect = _this.menuSelect.bind(_this);
+	    return _this;
+	  }
 
-				return _ref;
-			}
-		}]);
-		return CbbModal;
+	  (0, _createClass3.default)(CbbModal, [{
+	    key: "menuSelect",
+	    value: function menuSelect(menuButton) {
+	      this.setState({ activeButton: menuButton });
+	    }
+
+	    /*componentDidUpdate()
+	    componentWillReceiveProps(nextProps) These may be needed*/
+
+	  }, {
+	    key: "render",
+	    value: function render() {
+	      var _this2 = this;
+
+	      return (0, _jsx3.default)("div", {
+	        id: "cbModal"
+	      }, void 0, (0, _jsx3.default)("div", {
+	        id: "menu"
+	      }, void 0, (0, _jsx3.default)("div", {
+	        className: "menuTab",
+	        onClick: function onClick() {
+	          return _this2.menuSelect("menuAffirm");
+	        }
+	      }, void 0, "Affirm"), (0, _jsx3.default)("div", {
+	        className: "menuTab",
+	        onClick: function onClick() {
+	          return _this2.menuSelect("menuClarify");
+	        }
+	      }, void 0, "Clarify"), (0, _jsx3.default)("div", {
+	        className: "menuTab",
+	        onClick: function onClick() {
+	          return _this2.menuSelect("menuRequest");
+	        }
+	      }, void 0, "Request"), _ref), _ref2, _ref3);
+	    }
+	  }]);
+	  return CbbModal;
 	}(_react.Component);
+
+	exports.default = CbbModal;
 
 	/*var affirm1 = 'That\'s a good point.',
 	affirm2 = 'Yes, and...',
@@ -11933,7 +11956,7 @@
 	suggestion2 = affirm2,
 	suggestion3 = affirm3,
 	suggestion4 = affirm4;
-		menuAffirm.onclick = function() {
+	 menuAffirm.onclick = function() {
 	menuAffirm.style.backgroundColor = menuSelect
 	menuClarify.style.backgroundColor = menuDeselect
 	menuRequest.style.backgroundColor = menuDeselect},
@@ -11945,12 +11968,10 @@
 	menuAffirm.style.backgroundColor = menuDeselect
 	menuClarify.style.backgroundColor = menuDeselect
 	menuRequest.style.backgroundColor = menuSelect},
-			suggestion1.onclick = function() {
-			document.execCommand('copy');
+	    suggestion1.onclick = function() {
+	   document.execCommand('copy');
 	}*/
 
-
-	exports.default = CbbModal;
 	module.exports = exports["default"];
 
 /***/ }),
