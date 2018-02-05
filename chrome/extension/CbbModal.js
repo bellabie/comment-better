@@ -9,29 +9,60 @@ class CbbModal extends Component {
     this.menuSelect = this.menuSelect.bind(this);
   }
 
-  menuSelect(menuButton) {
+  menuSelect(tab, menuButton) {
     this.setState({activeButton: menuButton});
+    var tabs = document.getElementsByClassName("menuTab");
+    for (var i = 0; i < tabs.length; i++) {
+      tabs[i].classList.add("deselectTab");
+    };
+    
+    console.log(this.state);
+    console.log("^^^TEST PRINTING STATE^^^");
+
+    console.log(tab);
+
+    switch(menuButton) {
+      case "menuAffirm":
+        tab.classList.add("selectTab");
+        tab.classList.remove("deselectTab");
+      break;
+      case "menuClarify":
+        tab.classList.add("selectTab");
+        tab.classList.remove("deselectTab");
+      break;
+      case "menuRequest":
+        tab.classList.add("selectTab");
+        tab.classList.remove("deselectTab");
+      break;
+      default: ;
+    }
   }
 
+
+
   /*componentDidUpdate()
-  componentWillReceiveProps(nextProps) These may be needed*/
+  componentWillReceiveProps(nextProps) These may be needed
+  menuSelect = "#ddd",
+  menuDeselect = "#F6F7F9";
+  */
 
   render() {
 
     return (
        <div id="cbModal">
         <div id="menu">
-          <div className="menuTab" onClick={() => this.menuSelect("menuAffirm")}>
+          <div className="menuTab selectTab" onClick={(e) => this.menuSelect(e.target,"menuAffirm")}>
             Affirm
           </div>
-          <div className="menuTab" onClick={() => this.menuSelect("menuClarify")}>
+          <div className="menuTab deselectTab" onClick={(e) => this.menuSelect(e.target,"menuClarify")}>
             Clarify
           </div>
-          <div className="menuTab" onClick={() => this.menuSelect("menuRequest")}>
+          <div className="menuTab deselectTab" onClick={(e) => this.menuSelect(e.target,"menuRequest")}>
             Request
           </div>
           <div id="menuClear"></div>
         </div>
+
         <div id="suggestionBox">
           <div className="suggestion1">suggestion1 suggestion1 suggestion1</div>
           <div className="suggestion2">suggestion2</div>

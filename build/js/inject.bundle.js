@@ -11901,12 +11901,41 @@
 
 	  (0, _createClass3.default)(CbbModal, [{
 	    key: "menuSelect",
-	    value: function menuSelect(menuButton) {
+	    value: function menuSelect(tab, menuButton) {
 	      this.setState({ activeButton: menuButton });
+	      var tabs = document.getElementsByClassName("menuTab");
+	      for (var i = 0; i < tabs.length; i++) {
+	        tabs[i].classList.add("deselectTab");
+	      };
+
+	      console.log(this.state);
+	      console.log("^^^TEST PRINTING STATE^^^");
+
+	      console.log(tab);
+
+	      switch (menuButton) {
+	        case "menuAffirm":
+	          tab.classList.add("selectTab");
+	          tab.classList.remove("deselectTab");
+	          break;
+	        case "menuClarify":
+	          tab.classList.add("selectTab");
+	          tab.classList.remove("deselectTab");
+	          break;
+	        case "menuRequest":
+	          tab.classList.add("selectTab");
+	          tab.classList.remove("deselectTab");
+	          break;
+	        default:
+	          ;
+	      }
 	    }
 
 	    /*componentDidUpdate()
-	    componentWillReceiveProps(nextProps) These may be needed*/
+	    componentWillReceiveProps(nextProps) These may be needed
+	    menuSelect = "#ddd",
+	    menuDeselect = "#F6F7F9";
+	    */
 
 	  }, {
 	    key: "render",
@@ -11918,19 +11947,19 @@
 	      }, void 0, (0, _jsx3.default)("div", {
 	        id: "menu"
 	      }, void 0, (0, _jsx3.default)("div", {
-	        className: "menuTab",
-	        onClick: function onClick() {
-	          return _this2.menuSelect("menuAffirm");
+	        className: "menuTab selectTab",
+	        onClick: function onClick(e) {
+	          return _this2.menuSelect(e.target, "menuAffirm");
 	        }
 	      }, void 0, "Affirm"), (0, _jsx3.default)("div", {
-	        className: "menuTab",
-	        onClick: function onClick() {
-	          return _this2.menuSelect("menuClarify");
+	        className: "menuTab deselectTab",
+	        onClick: function onClick(e) {
+	          return _this2.menuSelect(e.target, "menuClarify");
 	        }
 	      }, void 0, "Clarify"), (0, _jsx3.default)("div", {
-	        className: "menuTab",
-	        onClick: function onClick() {
-	          return _this2.menuSelect("menuRequest");
+	        className: "menuTab deselectTab",
+	        onClick: function onClick(e) {
+	          return _this2.menuSelect(e.target, "menuRequest");
 	        }
 	      }, void 0, "Request"), _ref), _ref2, _ref3);
 	    }
