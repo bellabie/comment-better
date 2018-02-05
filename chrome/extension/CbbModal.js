@@ -18,6 +18,8 @@ class CbbModal extends Component {
       tabs[i].classList.add("deselectTab");
     };
 
+    // this is just to confirm that my branch is working correctly
+
     console.log(tab);
 
     switch(menuButton) {
