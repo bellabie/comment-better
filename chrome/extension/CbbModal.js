@@ -10,14 +10,13 @@ class CbbModal extends Component {
   }
 
   menuSelect(tab, menuButton) {
-    this.setState({activeButton: menuButton});
+    this.setState({activeButton: menuButton},() => console.log(this.state));
+    // The line above includes a callback which "forces" the state to update
+    // without the callback, it may need something like componentDidUpdate()
     var tabs = document.getElementsByClassName("menuTab");
     for (var i = 0; i < tabs.length; i++) {
       tabs[i].classList.add("deselectTab");
     };
-    
-    console.log(this.state);
-    console.log("^^^TEST PRINTING STATE^^^");
 
     console.log(tab);
 

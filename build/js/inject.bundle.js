@@ -11902,14 +11902,17 @@
 	  (0, _createClass3.default)(CbbModal, [{
 	    key: "menuSelect",
 	    value: function menuSelect(tab, menuButton) {
-	      this.setState({ activeButton: menuButton });
+	      var _this2 = this;
+
+	      this.setState({ activeButton: menuButton }, function () {
+	        return console.log(_this2.state);
+	      });
+	      // The line above includes a callback which "forces" the state to update
+	      // without the callback, it may need something like componentDidUpdate()
 	      var tabs = document.getElementsByClassName("menuTab");
 	      for (var i = 0; i < tabs.length; i++) {
 	        tabs[i].classList.add("deselectTab");
 	      };
-
-	      console.log(this.state);
-	      console.log("^^^TEST PRINTING STATE^^^");
 
 	      console.log(tab);
 
@@ -11940,7 +11943,7 @@
 	  }, {
 	    key: "render",
 	    value: function render() {
-	      var _this2 = this;
+	      var _this3 = this;
 
 	      return (0, _jsx3.default)("div", {
 	        id: "cbModal"
@@ -11949,17 +11952,17 @@
 	      }, void 0, (0, _jsx3.default)("div", {
 	        className: "menuTab selectTab",
 	        onClick: function onClick(e) {
-	          return _this2.menuSelect(e.target, "menuAffirm");
+	          return _this3.menuSelect(e.target, "menuAffirm");
 	        }
 	      }, void 0, "Affirm"), (0, _jsx3.default)("div", {
 	        className: "menuTab deselectTab",
 	        onClick: function onClick(e) {
-	          return _this2.menuSelect(e.target, "menuClarify");
+	          return _this3.menuSelect(e.target, "menuClarify");
 	        }
 	      }, void 0, "Clarify"), (0, _jsx3.default)("div", {
 	        className: "menuTab deselectTab",
 	        onClick: function onClick(e) {
-	          return _this2.menuSelect(e.target, "menuRequest");
+	          return _this3.menuSelect(e.target, "menuRequest");
 	        }
 	      }, void 0, "Request"), _ref), _ref2, _ref3);
 	    }
