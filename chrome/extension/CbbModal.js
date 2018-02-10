@@ -65,20 +65,29 @@ class CbbModal extends Component {
         </div>
 
         <div id="suggestionBox">
-          <div className="suggestion1">suggestion1 suggestion1 suggestion1</div>
-          <div className="suggestion2">suggestion2</div>
-          <div className="suggestion3">suggestion3suggestion3</div>
-          <div className="suggestion4">suggestion4suggestion4suggestion4</div>
-          <div className="suggestion5">suggestion5suggestion5 suggestion5</div>
-          <div className="suggestion6">suggestion6 suggestion6suggestion6</div>
+          <Suggestions/>
         </div>
-        <div id="cbBigger">testest<br/>testest</div>
       </div>
     );
   }
 }
 
 export default CbbModal;
+
+
+class Suggestions extends Component {
+  <div className="suggestion1">I hear your concern about...</div>
+  <div className="suggestion2">Good point.</div>
+  <div className="suggestion3">I understand your point that...</div>
+  <div className="suggestion4">I think we’re both saying...</div>
+  <div className="suggestion5">Yes, and...</div>
+  <div className="suggestion6">We both seem to care about...</div>
+
+
+  render() {
+    return <div>I'm B</div>;
+  }
+}
 
   /*var affirm1 = 'That\'s a good point.',
   affirm2 = 'Yes, and...',

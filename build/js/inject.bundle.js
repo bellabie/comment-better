@@ -11870,17 +11870,17 @@
 	  id: "suggestionBox"
 	}, void 0, (0, _jsx3.default)("div", {
 	  className: "suggestion1"
-	}, void 0, "suggestion1 suggestion1 suggestion1"), (0, _jsx3.default)("div", {
+	}, void 0, "I hear your concern about..."), (0, _jsx3.default)("div", {
 	  className: "suggestion2"
-	}, void 0, "suggestion2"), (0, _jsx3.default)("div", {
+	}, void 0, "Good point."), (0, _jsx3.default)("div", {
 	  className: "suggestion3"
-	}, void 0, "suggestion3suggestion3"), (0, _jsx3.default)("div", {
+	}, void 0, "I understand your point that..."), (0, _jsx3.default)("div", {
 	  className: "suggestion4"
-	}, void 0, "suggestion4suggestion4suggestion4"), (0, _jsx3.default)("div", {
+	}, void 0, "I think we\u2019re both saying..."), (0, _jsx3.default)("div", {
 	  className: "suggestion5"
-	}, void 0, "suggestion5suggestion5 suggestion5"), (0, _jsx3.default)("div", {
+	}, void 0, "Yes, and..."), (0, _jsx3.default)("div", {
 	  className: "suggestion6"
-	}, void 0, "suggestion6 suggestion6suggestion6"));
+	}, void 0, "We both seem to care about..."));
 
 	var _ref3 = (0, _jsx3.default)("div", {
 	  id: "cbBigger"
@@ -11913,6 +11913,8 @@
 	      for (var i = 0; i < tabs.length; i++) {
 	        tabs[i].classList.add("deselectTab");
 	      };
+
+	      // this is just to confirm that my branch is working correctly
 
 	      console.log(tab);
 
